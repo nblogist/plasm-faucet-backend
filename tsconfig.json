@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "moduleResolution": "node",
+    "paths": {
+      // "@polkadot/api/augment": ["./node_modules/@plasm/types/interfaces/augment-api.d.ts"],
+      // "@polkadot/types/augment": ["./node_modules/@plasm/types/interfaces/augment-types.d.ts"],
+      "@daos/*": [
+        "src/daos/*"
+      ],
+      "@entities/*": [
+        "src/entities/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@server": [
+        "src/Server"
+      ]
+    },
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "spec/**/*.ts"
+  ],
+  "exclude": [
+    "src/public/"
+  ],
+}
