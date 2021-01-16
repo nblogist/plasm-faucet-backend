@@ -64,6 +64,6 @@ Please submit pull requests to us using the format described while making a pull
 
 ## Authors
 
-* **Furqan Ahmed** - [Contact](https://www.furqan.me)
+* **Furqan Ahmed** - [Contact](https://furqan.me)
 
 See also the list of [contributors](https://github.com/nblogist/plasm-faucet-backend/contributors) who participated in this project.
