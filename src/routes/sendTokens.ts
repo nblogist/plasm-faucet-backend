@@ -113,7 +113,7 @@ router.get("/", async (req: any, res: Response, next: NextFunction) => {
         });
       }
     } else {
-      res.json({ trxHash: -1, msg: "Address not valid against the chain" });
+      res.json({ trxHash: -1, msg: "Address not valid against the chain.\n Make sure you enter a Plasm Dusty address with prefix 5\n To convert use https://polkadot.subscan.io/tools/ss58_transform?input=5CaLwjtWN6o9dpVQ2isqXSzRXzvRsSavmJkqyrWk5NTSRYuZ" });
     }
   }
 });
