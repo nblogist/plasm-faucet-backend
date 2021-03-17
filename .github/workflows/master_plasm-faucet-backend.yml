@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -19,7 +18,7 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '14.x'
+        node-version: '12.x'
 
     - name: npm install, build, and test
       run: |
@@ -32,5 +31,5 @@ jobs:
       with:
         app-name: 'plasm-faucet-backend'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0b44c4ef74ea4d729385fc7e2d8e72db }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_01ed266b4165452cb70ecca67b7edb2c }}
         package: .
