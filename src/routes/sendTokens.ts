@@ -13,8 +13,8 @@ const types = Object.values(plasmDefinitions).reduce(
   {}
 );
 
-types["Address"] = "IndicesLookupSource";
-types["LookupSource"] = "IndicesLookupSource";
+types["Address"] = "MultiAddress";
+types["LookupSource"] = "MultiAddress";
 
 const router = express.Router();
 router.use(expressip().getIpInfoMiddleware);
