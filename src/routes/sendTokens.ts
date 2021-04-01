@@ -31,7 +31,7 @@ router.get("/", async (req: any, res: Response, next: NextFunction) => {
   const URL_TEST_NET =
     process.env.URL_TEST_NET || "wss://rpc.dusty.plasmnet.io";
   const tokenDecimals = Number(process.env.TOKEN_DECIMALS) || 15;
-  const amount = Number(process.env.TOKENS_TO_PAY_PER_REQUEST) || 10000;
+  const amount = Number(process.env.TOKENS_TO_PAY_PER_REQUEST) || 10;
   const limit = Number(process.env.REQUEST_LIMIT) || 3;
   const mnemonic = process.env.FAUCET_ACCOUNT_MNEMONIC?.toString();
   const wsProvider = new WsProvider(URL_TEST_NET);
