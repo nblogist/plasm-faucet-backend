@@ -1,5 +1,8 @@
 import { WsProvider, Keyring, ApiPromise } from "@polkadot/api";
 import { cryptoWaitReady, checkAddress } from "@polkadot/util-crypto";
+import { formatBalance } from "@polkadot/util";
+import { Balance } from "@polkadot/types/interfaces";
+import { createType } from "@polkadot/types";
 import express, { Request, Response, NextFunction } from "express";
 import { config } from "dotenv";
 import expressip from "express-ip";
@@ -73,7 +76,9 @@ router.get("/", async (req: any, res: Response, next: NextFunction) => {
     try {
       if (address && account) {
         let bal = await api.query.system.account(account.address);
-        if (Number(bal.data.free) > 0) {
+        const value = api.createType("Balance", transferValue);
+
+        if (bal.data.free > value) { // !needs review 
           const txHash = await api.tx.balances
             .transfer(address.toString(), transferValue)
             .signAndSend(account);
@@ -113,7 +118,11 @@ router.get("/", async (req: any, res: Response, next: NextFunction) => {
         });
       }
     } else {
-      res.json({ trxHash: -1, msg: "Address not valid against the chain.\n Make sure you enter a Plasm Dusty address with prefix 5\n To convert use https://polkadot.subscan.io/tools/ss58_transform?input=5CaLwjtWN6o9dpVQ2isqXSzRXzvRsSavmJkqyrWk5NTSRYuZ" });
+      res.json({
+        trxHash: -1,
+        msg:
+          "Address not valid against the chain.\n Make sure you enter a Plasm Dusty address with prefix 5\n To convert use https://polkadot.subscan.io/tools/ss58_transform?input=5CaLwjtWN6o9dpVQ2isqXSzRXzvRsSavmJkqyrWk5NTSRYuZ",
+      });
     }
   }
 });
