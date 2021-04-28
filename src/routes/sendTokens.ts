@@ -18,6 +18,8 @@ const types = Object.values(plasmDefinitions).reduce(
 
 types["Address"] = "MultiAddress";
 types["LookupSource"] = "MultiAddress";
+types["SmartContract"] = "MultiAddress";
+
 
 const router = express.Router();
 router.use(expressip().getIpInfoMiddleware);
